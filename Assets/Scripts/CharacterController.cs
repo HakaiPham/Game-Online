@@ -1,6 +1,7 @@
+using Fusion;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public float moveSpeed = 5f;
     public float jumpForce = 12f;
@@ -15,8 +16,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    public override void FixedUpdateNetwork()
     {
+        if (!Object.HasStateAuthority) return;
         Move();
         Jump();
     }
