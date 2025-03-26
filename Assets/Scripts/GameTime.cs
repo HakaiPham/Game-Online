@@ -11,25 +11,12 @@ public class GameTime : NetworkBehaviour
 
     public TextMeshProUGUI countdownText;
 
-    private NetworkRunner runner;
-    private NetworkObject networkObject;
-
-    void Start()
+    public override void Spawned()
     {
-        networkObject = GetComponent<NetworkObject>();
-        if (networkObject != null)
+        if (Object.HasStateAuthority)
         {
-            runner = networkObject.Runner;
-            if (runner != null && runner.IsServer)
-            {
-                Debug.Log(">>>>>>");
-                countdownTime = 300f;
-                StartCoroutine(ServerCountdown());
-            }
-        }
-        else
-        {
-            Debug.LogError("NetworkObject not found on " + gameObject.name);
+            countdownTime = 300f;
+            StartCoroutine(ServerCountdown());
         }
     }
 
@@ -47,6 +34,7 @@ public class GameTime : NetworkBehaviour
 
     public void OnTimeChanged()
     {
+        // Update countdown for all players
         TimeSpan time = TimeSpan.FromSeconds(countdownTime);
         countdownText.text = time.ToString(@"mm\:ss");
     }

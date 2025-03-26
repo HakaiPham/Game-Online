@@ -1,29 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Trap : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float LimitUp;
     public float LimitDown;
     public float Speed;
-    Rigidbody2D Rigidbody;
-    void Start()
+    private bool movingUp = false;
+
+    void Update()
     {
-        Rigidbody = GetComponent<Rigidbody2D>();
+
+        if (movingUp)
+        {
+            transform.position += Vector3.up * Speed * Time.deltaTime;
+            if (transform.position.y >= LimitUp)
+            {
+                movingUp = false;
+            }
+        }
+        else
+        {
+            transform.position += Vector3.down * Speed * Time.deltaTime;
+            if (transform.position.y <= LimitDown)
+            {
+                movingUp = true;
+            }
+        }
     }
 
-    // Update is called once per frame
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.position.y >= LimitUp)
+        Debug.Log("Trap hit: " + collision.gameObject.name); // Debug message
+
+        if (collision.CompareTag("Player")) // Use tag or name
         {
-            Rigidbody.velocity = Vector2.down * Speed ;
-        }
-        else if (transform.position.y <= LimitDown)
-        {
-            Rigidbody.velocity = Vector2.up * Speed;
+            Debug.Log("Player detected! Calling Die()");
+            PlayerDeath player = collision.GetComponent<PlayerDeath>();
+            if (player != null)
+            {
+                player.Die();
+            }
+            else
+            {
+                Debug.LogError("PlayerDeath script NOT found on Player!");
+            }
         }
     }
 }
