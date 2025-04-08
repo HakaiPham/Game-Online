@@ -35,7 +35,7 @@ public class PlayerMovement : NetworkBehaviour
         if (moveInput != 0)
         {
             animator.SetBool("Run", true);
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
         else if (moveInput == 0)
         {
@@ -56,7 +56,7 @@ public class PlayerMovement : NetworkBehaviour
         {
             Debug.Log(">>>>>>>");
             animator.SetTrigger("jump");
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
         else
         {
