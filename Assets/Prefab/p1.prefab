@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 408399884664632862}
   - component: {fileID: -1532428970180168513}
   m_Layer: 0
-  m_Name: Blue
+  m_Name: p1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -6367560908665664636, guid: 1677d1206921ee549ae7d82665d58896, type: 3}
+  m_Sprite: {fileID: -6367560908665664636, guid: 24d75d89b5d638f46b6f741c88e73c6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 128607597
+  SortKey: 3000496535
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
@@ -214,6 +214,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 5437406798672454492}
+  rb: {fileID: 8235758861976788471}
+  animator: {fileID: 408399884664632862}
 --- !u!95 &408399884664632862
 Animator:
   serializedVersion: 7

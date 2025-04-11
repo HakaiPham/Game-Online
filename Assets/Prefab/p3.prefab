@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 408399884664632862}
   - component: {fileID: -1532428970180168513}
   m_Layer: 0
-  m_Name: Red
+  m_Name: p3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,6 +214,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 5437406798672454492}
+  rb: {fileID: 8235758861976788471}
+  animator: {fileID: 408399884664632862}
 --- !u!95 &408399884664632862
 Animator:
   serializedVersion: 7
@@ -224,7 +226,7 @@ Animator:
   m_GameObject: {fileID: 730743028871447179}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03013dc22980ea944aa96f893fdf7cb4, type: 2}
+  m_Controller: {fileID: 9100000, guid: a9c5c88ee2ebb0148b9187d5c166b3c3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

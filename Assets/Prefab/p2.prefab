@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 408399884664632862}
   - component: {fileID: -1532428970180168513}
   m_Layer: 0
-  m_Name: Purple
+  m_Name: p2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: -6367560908665664636, guid: d9606aae6251e8d4cb13594bd0b105e3, type: 3}
+  m_Sprite: {fileID: -6367560908665664636, guid: 1677d1206921ee549ae7d82665d58896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3496490320
+  SortKey: 128607597
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
@@ -214,6 +214,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 5437406798672454492}
+  rb: {fileID: 8235758861976788471}
+  animator: {fileID: 408399884664632862}
 --- !u!95 &408399884664632862
 Animator:
   serializedVersion: 7
@@ -224,7 +226,7 @@ Animator:
   m_GameObject: {fileID: 730743028871447179}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03013dc22980ea944aa96f893fdf7cb4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 60644fc48c7c47d4d9fc725af9ed83f1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
