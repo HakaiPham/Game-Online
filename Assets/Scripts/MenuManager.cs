@@ -20,7 +20,7 @@ public class MenuManager : MonoBehaviour
 
         volumeSlider.onValueChanged.AddListener(OnSliderChanged);
 
-        volumeSlider.gameObject.SetActive(false);
+        volumeSlider.gameObject.SetActive(true);
 
         // Load volume
         float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
