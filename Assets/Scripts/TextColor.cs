@@ -1,9 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RainbowColorCycle : MonoBehaviour
 {
-    public Image[] letters; // G, Dot1, O, Dot2, D, 2
+    public Image[] letters;
+    public ParticleSystem topLeftParticle;
+    public ParticleSystem bottomRightParticle;
 
     [Range(0.1f, 5f)]
     public float colorChangeSpeed = 1f;
@@ -11,12 +14,12 @@ public class RainbowColorCycle : MonoBehaviour
     private Color[] rainbowColors = new Color[]
     {
         Color.red,
-        new Color(1f, 0.5f, 0f), // Orange
+        new Color(1f, 0.5f, 0f),
         Color.yellow,
         Color.green,
         Color.cyan,
         Color.blue,
-        new Color(0.6f, 0f, 1f) // Violet
+        new Color(0.6f, 0f, 1f)
     };
 
     private int currentColorIndex = 0;
@@ -25,6 +28,18 @@ public class RainbowColorCycle : MonoBehaviour
 
     void Update()
     {
+        // Nếu không ở Menu scene thì tắt particle và return
+        if (SceneManager.GetActiveScene().name != "Menu")
+        {
+            if (topLeftParticle != null && topLeftParticle.isPlaying)
+                topLeftParticle.Stop();
+
+            if (bottomRightParticle != null && bottomRightParticle.isPlaying)
+                bottomRightParticle.Stop();
+
+            return;
+        }
+
         t += Time.deltaTime * colorChangeSpeed;
 
         if (t > 1f)
@@ -40,6 +55,20 @@ public class RainbowColorCycle : MonoBehaviour
         {
             if (img != null)
                 img.color = lerpedColor;
+        }
+
+        if (topLeftParticle != null)
+        {
+            var main = topLeftParticle.main;
+            main.startColor = lerpedColor;
+            if (!topLeftParticle.isPlaying) topLeftParticle.Play();
+        }
+
+        if (bottomRightParticle != null)
+        {
+            var main = bottomRightParticle.main;
+            main.startColor = lerpedColor;
+            if (!bottomRightParticle.isPlaying) bottomRightParticle.Play();
         }
     }
 }
