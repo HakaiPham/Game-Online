@@ -11,7 +11,6 @@ public class PlayerMovement : NetworkBehaviour
     float moveInput;
 
     private Rigidbody2D rb;
-    private CapsuleCollider2D collider;
     private bool isGrounded;
 
     Animator animator;
@@ -20,7 +19,6 @@ public class PlayerMovement : NetworkBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<CapsuleCollider2D>();
     }
 
     public override void FixedUpdateNetwork()
@@ -69,45 +67,7 @@ public class PlayerMovement : NetworkBehaviour
             }
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "NemNhay")
-        {
-            animator.SetTrigger("jump");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce + 6f);
-        }
-        if (collision.gameObject.tag == "Wall"&& collision.gameObject.tag == "Blink")
-        {
-            collider.enabled = false;
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Arrow")
-        {
-            animator.SetTrigger("jump");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce + 7f);
-        }
-        if (collision.gameObject.tag == "Gai")
-        {
-            collider.enabled = false;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce + 7f);
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "NemNhay")
-        {
-            animator.SetTrigger("Fall");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Arrow")
-        {
-            animator.SetTrigger("Fall");
-        }
-    }
+
     public void EatFruit()
     {
         
