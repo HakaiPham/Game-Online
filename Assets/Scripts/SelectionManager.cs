@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,7 +11,7 @@ public class SelectionManager : MonoBehaviour
     public Button player1;
     public Button player2;
     public Button player3;
-    public Button player4; 
+    public Button player4;
     // Start is called before the first frame update
     void Start()
     {
