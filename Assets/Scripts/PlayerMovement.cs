@@ -10,15 +10,26 @@ public class PlayerMovement : NetworkBehaviour
     public Transform groundCheck;
     float moveInput;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private bool isGrounded;
 
-    Animator animator;
+    public Animator animator;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("Animator not found on " + gameObject.name);
+        }
+
+        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D not found on " + gameObject.name);
+        }
     }
 
     public override void FixedUpdateNetwork()

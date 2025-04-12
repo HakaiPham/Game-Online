@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 408399884664632862}
   - component: {fileID: -1532428970180168513}
   m_Layer: 0
-  m_Name: Player
+  m_Name: p1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,7 @@ SpriteRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SortKey: 3277586947
+  SortKey: 3000496535
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
@@ -133,7 +134,7 @@ MonoBehaviour:
   DisableSharedModeInterpolation: 0
 --- !u!50 &8235758861976788471
 Rigidbody2D:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -144,8 +145,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
-  m_AngularDrag: 0.05
+  m_LinearDamping: 2
+  m_AngularDamping: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -213,6 +214,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 5437406798672454492}
+  rb: {fileID: 8235758861976788471}
+  animator: {fileID: 408399884664632862}
 --- !u!95 &408399884664632862
 Animator:
   serializedVersion: 7
