@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 330755749}
   - component: {fileID: 330755748}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ReturnToMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3966,6 +3966,7 @@ MonoBehaviour:
   player2: {fileID: 472690749}
   player3: {fileID: 814715326}
   player4: {fileID: 1272411924}
+  backButton: {fileID: 330755748}
 --- !u!1 &1313144750
 GameObject:
   m_ObjectHideFlags: 0
