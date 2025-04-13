@@ -154,7 +154,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -187,7 +187,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -200,7 +200,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -213,7 +213,7 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -240,6 +240,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -254,13 +255,14 @@ TextureImporter:
       name: Text (White) (8x10)_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 30
+        x: 8
+        y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -275,13 +277,14 @@ TextureImporter:
       name: Text (White) (8x10)_2
       rect:
         serializedVersion: 2
-        x: 8
+        x: 16
         y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -296,13 +299,14 @@ TextureImporter:
       name: Text (White) (8x10)_3
       rect:
         serializedVersion: 2
-        x: 8
-        y: 30
+        x: 24
+        y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -317,13 +321,14 @@ TextureImporter:
       name: Text (White) (8x10)_4
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -338,13 +343,14 @@ TextureImporter:
       name: Text (White) (8x10)_5
       rect:
         serializedVersion: 2
-        x: 16
-        y: 30
+        x: 40
+        y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -359,13 +365,14 @@ TextureImporter:
       name: Text (White) (8x10)_6
       rect:
         serializedVersion: 2
-        x: 24
+        x: 48
         y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -380,13 +387,14 @@ TextureImporter:
       name: Text (White) (8x10)_7
       rect:
         serializedVersion: 2
-        x: 24
-        y: 30
+        x: 56
+        y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -401,13 +409,14 @@ TextureImporter:
       name: Text (White) (8x10)_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -422,13 +431,14 @@ TextureImporter:
       name: Text (White) (8x10)_9
       rect:
         serializedVersion: 2
-        x: 32
-        y: 30
+        x: 72
+        y: 40
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -443,13 +453,14 @@ TextureImporter:
       name: Text (White) (8x10)_10
       rect:
         serializedVersion: 2
-        x: 40
-        y: 40
+        x: 0
+        y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -464,13 +475,14 @@ TextureImporter:
       name: Text (White) (8x10)_11
       rect:
         serializedVersion: 2
-        x: 40
+        x: 8
         y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -485,13 +497,14 @@ TextureImporter:
       name: Text (White) (8x10)_12
       rect:
         serializedVersion: 2
-        x: 48
-        y: 40
+        x: 16
+        y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -506,13 +519,14 @@ TextureImporter:
       name: Text (White) (8x10)_13
       rect:
         serializedVersion: 2
-        x: 48
+        x: 24
         y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -527,13 +541,14 @@ TextureImporter:
       name: Text (White) (8x10)_14
       rect:
         serializedVersion: 2
-        x: 56
-        y: 40
+        x: 32
+        y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -548,13 +563,14 @@ TextureImporter:
       name: Text (White) (8x10)_15
       rect:
         serializedVersion: 2
-        x: 56
+        x: 40
         y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -569,13 +585,14 @@ TextureImporter:
       name: Text (White) (8x10)_16
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -590,13 +607,14 @@ TextureImporter:
       name: Text (White) (8x10)_17
       rect:
         serializedVersion: 2
-        x: 65
-        y: 40
-        width: 6
+        x: 56
+        y: 30
+        width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -611,13 +629,14 @@ TextureImporter:
       name: Text (White) (8x10)_18
       rect:
         serializedVersion: 2
-        x: 72
-        y: 40
+        x: 64
+        y: 30
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -639,6 +658,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -660,6 +680,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -674,13 +695,14 @@ TextureImporter:
       name: Text (White) (8x10)_21
       rect:
         serializedVersion: 2
-        x: 0
-        y: 10
+        x: 8
+        y: 20
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -695,13 +717,14 @@ TextureImporter:
       name: Text (White) (8x10)_22
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 22
-        height: 20
+        x: 16
+        y: 20
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -716,13 +739,14 @@ TextureImporter:
       name: Text (White) (8x10)_23
       rect:
         serializedVersion: 2
-        x: 8
+        x: 24
         y: 20
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -737,13 +761,14 @@ TextureImporter:
       name: Text (White) (8x10)_24
       rect:
         serializedVersion: 2
-        x: 8
-        y: 10
+        x: 32
+        y: 20
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -758,13 +783,14 @@ TextureImporter:
       name: Text (White) (8x10)_25
       rect:
         serializedVersion: 2
-        x: 16
+        x: 40
         y: 20
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -779,13 +805,14 @@ TextureImporter:
       name: Text (White) (8x10)_26
       rect:
         serializedVersion: 2
-        x: 24
-        y: 20
+        x: 0
+        y: 10
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -800,13 +827,14 @@ TextureImporter:
       name: Text (White) (8x10)_27
       rect:
         serializedVersion: 2
-        x: 24
+        x: 8
         y: 10
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -821,13 +849,14 @@ TextureImporter:
       name: Text (White) (8x10)_28
       rect:
         serializedVersion: 2
-        x: 32
-        y: 20
+        x: 16
+        y: 10
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -842,13 +871,14 @@ TextureImporter:
       name: Text (White) (8x10)_29
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 24
+        y: 10
         width: 8
-        height: 20
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -863,13 +893,14 @@ TextureImporter:
       name: Text (White) (8x10)_30
       rect:
         serializedVersion: 2
-        x: 40
-        y: 20
+        x: 32
+        y: 10
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -891,6 +922,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -912,6 +944,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -933,6 +966,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -954,6 +988,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -975,6 +1010,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -989,13 +1025,14 @@ TextureImporter:
       name: Text (White) (8x10)_36
       rect:
         serializedVersion: 2
-        x: 24
+        x: 0
         y: 0
         width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -1010,13 +1047,14 @@ TextureImporter:
       name: Text (White) (8x10)_37
       rect:
         serializedVersion: 2
-        x: 41
+        x: 8
         y: 0
-        width: 6
+        width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -1031,13 +1069,14 @@ TextureImporter:
       name: Text (White) (8x10)_38
       rect:
         serializedVersion: 2
-        x: 49
+        x: 16
         y: 0
-        width: 6
+        width: 8
         height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -1052,13 +1091,14 @@ TextureImporter:
       name: Text (White) (8x10)_39
       rect:
         serializedVersion: 2
-        x: 56
-        y: 1
-        width: 16
-        height: 8
+        x: 24
+        y: 0
+        width: 8
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
@@ -1069,16 +1109,129 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Text (White) (8x10)_40
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15b22bbc9b95e244bbf08f0816833ee
+      internalID: 427951535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text (White) (8x10)_41
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d294553fa2c17f42acec3d8377b2bc0
+      internalID: 162845428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text (White) (8x10)_42
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a630349b30a321945b68b00afc16cce5
+      internalID: 977763895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text (White) (8x10)_43
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07dd21bf191cf24fae948b8cb9bb3c6
+      internalID: -506165681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text (White) (8x10)_44
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3907ab3c8c3934690fbad531ee108e
+      internalID: -1006091830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f73691fda1994af409be2cb950822f89
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable:
       Text (White) (8x10)_0: 685122393223541077
       Text (White) (8x10)_1: 4023848876748261347
@@ -1115,6 +1268,11 @@ TextureImporter:
       Text (White) (8x10)_38: -3764269671710618991
       Text (White) (8x10)_39: -7402486445360761152
       Text (White) (8x10)_4: 8892430767788079939
+      Text (White) (8x10)_40: 427951535
+      Text (White) (8x10)_41: 162845428
+      Text (White) (8x10)_42: 977763895
+      Text (White) (8x10)_43: -506165681
+      Text (White) (8x10)_44: -1006091830
       Text (White) (8x10)_5: 1949440252828874971
       Text (White) (8x10)_6: -1795438771938332281
       Text (White) (8x10)_7: 8059085383239709721
