@@ -1088,6 +1088,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7206280617570971059, guid: 4e1387f62e14b5346b178979d63833ea, type: 3}
   m_PrefabInstance: {fileID: 141815648}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &157732539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
+  m_PrefabInstance: {fileID: 3624935001927849115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e906a23fce080ad45b62442445f9eaff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &177851884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,7 +2992,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 34
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8258,8 +8269,8 @@ Tilemap:
     m_Data: {fileID: -611775315, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -1563068350, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -29381091, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -896908341, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
   - m_RefCount: 1
@@ -8318,8 +8329,8 @@ Tilemap:
     m_Data: {fileID: -662450695, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -1170523574, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -29381091, guid: 502ef91788c58114f9dd8180257bdd37, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 505
     m_Data:
@@ -13371,6 +13382,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7166283996975488366, guid: 608349959c0eb9743841ee449d2b3150, type: 3}
   m_PrefabInstance: {fileID: 7420700656512103830}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1009953777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6182078935196134497, guid: 1633835135191604cb02df68be0d4287, type: 3}
+  m_PrefabInstance: {fileID: 3624935001927849115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1029434396
 GameObject:
   m_ObjectHideFlags: 0
@@ -22856,6 +22878,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1199789198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7933919421364002627, guid: 1633835135191604cb02df68be0d4287, type: 3}
+  m_PrefabInstance: {fileID: 3624935001927849115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215081883
 GameObject:
   m_ObjectHideFlags: 0
@@ -24844,6 +24877,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6394273437482371051, guid: 2fe187a6e84b87a4fb86363976aed7d8, type: 3}
   m_PrefabInstance: {fileID: 1593398525}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1664194820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3671711798680426820, guid: 1633835135191604cb02df68be0d4287, type: 3}
+  m_PrefabInstance: {fileID: 3624935001927849115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1672300014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27239,6 +27283,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 157732539}
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleChatPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChatSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1115416290868172973, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1960229277809178682, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: m_Name
       value: Chat Message
@@ -27291,18 +27363,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4163708128108942162, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0013008
+      objectReference: {fileID: 0}
     - target: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: buttonSend
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1664194820}
     - target: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: textMessage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1009953777}
     - target: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: inputFieldMessage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1199789198}
     - target: {fileID: 4656937738642484941, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: m_Name
       value: Button Send
@@ -27321,7 +27397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6182078935196134497, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7933919421364002627, guid: 1633835135191604cb02df68be0d4287, type: 3}
       propertyPath: m_Text
