@@ -35,7 +35,7 @@ public class TrapLaze : MonoBehaviour
             if (shot.firePoint != null)
             {
                 GameObject arrow = Instantiate(arrowPrefab, shot.firePoint.position, Quaternion.identity);
-                arrow.GetComponent<Rigidbody2D>().velocity = shot.direction.normalized * arrowSpeed;
+                arrow.GetComponent<Rigidbody2D>().linearVelocity = shot.direction.normalized * arrowSpeed;
             }
         }
     }
