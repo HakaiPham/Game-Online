@@ -54,7 +54,6 @@ SpriteRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -148,11 +147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc925fcdc9103348a0ec80295110397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMelon: 0
-  isBanana: 1
-  isApple: 0
-  isCherries: 0
-  isKiwi: 0
 --- !u!114 &5500725594488493023
 MonoBehaviour:
   m_ObjectHideFlags: 0
