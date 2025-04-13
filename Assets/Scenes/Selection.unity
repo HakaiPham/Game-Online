@@ -9540,6 +9540,18 @@ PrefabInstance:
       value: Cherries_0
       objectReference: {fileID: 0}
     - target: {fileID: 7542262181882670014, guid: 95f94f1ccf8dd3244b2276b09549f9fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542262181882670014, guid: 95f94f1ccf8dd3244b2276b09549f9fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542262181882670014, guid: 95f94f1ccf8dd3244b2276b09549f9fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542262181882670014, guid: 95f94f1ccf8dd3244b2276b09549f9fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -789.9402
       objectReference: {fileID: 0}
@@ -9595,6 +9607,18 @@ PrefabInstance:
     - target: {fileID: 4402335515713634943, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
       propertyPath: m_Name
       value: Melon_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261050395799341844, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261050395799341844, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7261050395799341844, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7261050395799341844, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
       propertyPath: m_LocalPosition.x
