@@ -2141,13 +2141,14 @@ GameObject:
   - component: {fileID: 295782549}
   - component: {fileID: 295782547}
   - component: {fileID: 295782550}
+  - component: {fileID: 295782551}
   m_Layer: 0
   m_Name: Brown Off (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &295782546
 Transform:
   m_ObjectHideFlags: 0
@@ -2280,6 +2281,25 @@ MonoBehaviour:
   limitDown: -2
   speed: 3
   requiredPlayers: 2
+--- !u!114 &295782551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295782545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1552182283, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SortKey: 3410188659
+  ObjectInterest: 1
+  Flags: 1
+  NestedObjects: []
+  NetworkedBehaviours:
+  - {fileID: 295782550}
+  ForceRemoteRenderTimeframe: 0
 --- !u!1 &321497227
 GameObject:
   m_ObjectHideFlags: 0
@@ -23115,6 +23135,111 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7206280617570971059, guid: 4e1387f62e14b5346b178979d63833ea, type: 3}
   m_PrefabInstance: {fileID: 2400926757082049972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3624935001927849115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1960229277809178682, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_Name
+      value: Chat Message
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051353326249730514, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_Name
+      value: ChatManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3319765875857102292, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_text
+      value: "\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0346036
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6592889
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6697445
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964816006790545297, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: buttonSend
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: textMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220846242347605818, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: inputFieldMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656937738642484941, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_Name
+      value: Button Send
+      objectReference: {fileID: 0}
+    - target: {fileID: 5147301162798377129, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: SortKey
+      value: 3192008226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614999026847146603, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_Name
+      value: Input Message
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182078935196134497, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182078935196134497, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933919421364002627, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959168848052432318, guid: 1633835135191604cb02df68be0d4287, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1633835135191604cb02df68be0d4287, type: 3}
 --- !u!1001 &4078561064433073135
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23262,3 +23387,4 @@ SceneRoots:
   - {fileID: 916866841}
   - {fileID: 1436893279}
   - {fileID: 2087784548}
+  - {fileID: 3624935001927849115}

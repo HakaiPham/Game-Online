@@ -13,7 +13,7 @@ public class ChatSystem : NetworkBehaviour
 
     public override void Spawned()
     {
-       textMessage = GameObject.Find("Text Message")
+       textMessage = GameObject.Find("Chat Message")
             .GetComponent<TextMeshProUGUI>();
         inputFieldMessage = GameObject.Find("Input Message")
             .GetComponent<TMP_InputField>();
