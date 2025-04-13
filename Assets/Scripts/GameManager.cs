@@ -1,4 +1,4 @@
-using Fusion.Sockets;
+﻿using Fusion.Sockets;
 using Fusion;
 using System.Collections.Generic;
 using System;
@@ -10,6 +10,7 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     public NetworkPrefabRef _player2Prefab;
     public NetworkPrefabRef _player3Prefab;
     public NetworkPrefabRef _player4Prefab;
+
     [SerializeField] private Transform spawnP1;
     [SerializeField] private Transform spawnP2;
     [SerializeField] private Transform spawnP3;
@@ -18,6 +19,7 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     public Transform spawnPoint;
     public NetworkRunner _runner;
     public NetworkSceneManagerDefault _sceneManager;
+
 
     void Awake()
     {
@@ -28,10 +30,8 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
             _runner.AddCallbacks(this);
             _sceneManager = runnerObj.AddComponent<NetworkSceneManagerDefault>();
         }
-
         ConnectToFusion();
     }
-
 
     async void ConnectToFusion()
     {
