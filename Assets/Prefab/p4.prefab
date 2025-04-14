@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5825222730599140003}
   - component: {fileID: 408399884664632862}
   - component: {fileID: -1532428970180168513}
+  - component: {fileID: 482156487603954557}
   m_Layer: 0
   m_Name: p4
   m_TagString: Player
@@ -114,6 +115,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 5228999229062536673}
   - {fileID: 5825222730599140003}
+  - {fileID: 482156487603954557}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &5228999229062536673
 MonoBehaviour:
@@ -250,6 +252,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c889a8137838c48a4144ab33073b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &482156487603954557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730743028871447179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e906a23fce080ad45b62442445f9eaff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMessage: {fileID: 0}
+  inputFieldMessage: {fileID: 0}
+  buttonSend: {fileID: 0}
+  chatPanel: {fileID: 0}
+  toggleChatButton: {fileID: 0}
 --- !u!1 &2391598862267913195
 GameObject:
   m_ObjectHideFlags: 0

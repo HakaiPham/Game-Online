@@ -18,37 +18,31 @@ public class ChatSystem : NetworkBehaviour
 
     public override void Spawned()
     {
-        textMessage = transform.Find("Canvas/Chat Box/MessageBox/Chat Message").GetComponent<TextMeshProUGUI>();
-        inputFieldMessage = transform.Find("Canvas/Chat Box/InputBox/Input Message").GetComponent<TMP_InputField>();
-        buttonSend = transform.Find("Canvas/Chat Box/InputBox/Button Send").GetComponent<Button>();
-        chatPanel = transform.Find("Canvas/Chat Box").gameObject;
-        toggleChatButton = transform.Find("Canvas/Open/Close Chat").GetComponent<Button>();
+        textMessage = GameObject.Find("ChatMessage").GetComponent<TextMeshProUGUI>();
+        inputFieldMessage = GameObject.Find("Input Message").GetComponent<TMP_InputField>();
+        buttonSend = GameObject.Find("Button Send").GetComponent<Button>();
+        chatPanel = GameObject.Find("Chat Box");
+        toggleChatButton = GameObject.Find("Open/Close Chat").GetComponent<Button>();
 
-        buttonSend.onClick.AddListener(SendMessageChat);
+        buttonSend.onClick.AddListener(SendMessagChat);
         toggleChatButton.onClick.AddListener(ToggleChatPanel);
-
-        Debug.Log("Chat system spawned và nút đã gán sự kiện.");
     }
 
-    public void SendMessageChat()
+
+
+    public void SendMessagChat()
     {
         var message = inputFieldMessage.text;
-        Debug.Log("Message nhập vào: " + message);
-
         if (string.IsNullOrWhiteSpace(message)) return;
-
         var id = Runner.LocalPlayer.PlayerId;
         var text = $"Player {id}: {message}";
-
         RpcChat(text);
-
         inputFieldMessage.text = "";
     }
 
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void RpcChat(string msg)
     {
-        Debug.Log("RpcChat nhận: " + msg);
         textMessage.text += msg + "\n";
     }
 
