@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Fusion;
 using TMPro;
-using UnityEngine.UI; // Thêm namespace để dùng Button
+using UnityEngine.UI;
 
 public class ScoreManager : NetworkBehaviour
 {
@@ -13,19 +13,23 @@ public class ScoreManager : NetworkBehaviour
     [Networked] public int scoreCherries { get; set; }
     [Networked] public int scoreKiwi { get; set; }
 
+    [Header("UI")]
     public TextMeshProUGUI bananaText;
     public TextMeshProUGUI appleText;
     public TextMeshProUGUI melonText;
     public TextMeshProUGUI cherriesText;
     public TextMeshProUGUI kiwiText;
 
-
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     public override void Spawned()
@@ -49,10 +53,9 @@ public class ScoreManager : NetworkBehaviour
         UpdateScoreUI();
     }
 
-    public void AddScore(FruitType type)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcAddScore(FruitType type)
     {
-        if (!Object.HasStateAuthority) return;
-
         switch (type)
         {
             case FruitType.Banana: scoreBanana++; break;
