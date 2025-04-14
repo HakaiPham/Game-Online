@@ -9535,6 +9535,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1313144751}
     m_Modifications:
+    - target: {fileID: -4947490103642460117, guid: 95f94f1ccf8dd3244b2276b09549f9fe, type: 3}
+      propertyPath: SortKey
+      value: 2676094936
+      objectReference: {fileID: 0}
     - target: {fileID: 2495783908177737349, guid: 95f94f1ccf8dd3244b2276b09549f9fe, type: 3}
       propertyPath: m_Name
       value: Cherries_0
@@ -9604,6 +9608,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1313144751}
     m_Modifications:
+    - target: {fileID: -4708026659014806272, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
+      propertyPath: SortKey
+      value: 952421601
+      objectReference: {fileID: 0}
     - target: {fileID: 4402335515713634943, guid: 152d2c09014a06f4eac715d9e6ec66ec, type: 3}
       propertyPath: m_Name
       value: Melon_0
