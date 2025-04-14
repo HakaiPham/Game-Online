@@ -1,43 +1,28 @@
 ﻿using UnityEngine;
 using Fusion;
 
+public enum FruitType { Banana, Apple, Melon, Cherries, Kiwi }
+
 public class Fruit : NetworkBehaviour
 {
-    ScoreManager scoreManager;
-    public bool isBanana;
-    public bool isApple;
-    public bool isMelon;
-    public bool isCherries;
-    public bool isKiwi;
+    public FruitType fruitType;
 
-    private void Start()
-    {
-        scoreManager = FindObjectOfType<ScoreManager>();
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!Object.HasStateAuthority) return;
+
         if (collision.CompareTag("Player"))
         {
-            if (isBanana)
+            if (ScoreManager.Instance != null)
             {
-                scoreManager.ScoreBanana();
+                ScoreManager.Instance.RpcAddScore(fruitType);
             }
-            if (isApple)
+            else
             {
-                scoreManager.ScoreApple();
+                Debug.LogWarning("ScoreManager instance not found!");
             }
-            if (isMelon)
-            {
-                scoreManager.ScoreMelon();
-            }
-            if (isCherries)
-            {
-                scoreManager.ScoreCherries();
-            }
-            if (isKiwi)
-            {
-                scoreManager.ScoreKiwi();
-            }
+
+            Runner.Despawn(Object); // Xoá trái cây sau khi ăn
         }
     }
 }
