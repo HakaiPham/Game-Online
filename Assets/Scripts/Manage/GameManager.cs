@@ -125,13 +125,15 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     }
     void SpawnRandomFruit()
     {
-        if (fruitPrefabs.Length == 0 || fruitSpawnPoints.Length == 0)
+        Transform spawnParent = GameObject.Find("FruitSpawnGroup")?.transform;
+
+        if (spawnParent == null)
         {
-            Debug.LogWarning("Fruit prefabs hoặc spawn points chưa gán!");
+            Debug.LogWarning("Không tìm thấy FruitSpawns trong scene!");
             return;
         }
 
-        foreach (Transform spawn in fruitSpawnPoints)
+        foreach (Transform spawn in spawnParent)
         {
             NetworkPrefabRef randomFruit = fruitPrefabs[UnityEngine.Random.Range(0, fruitPrefabs.Length)];
 
@@ -141,8 +143,10 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
             });
         }
 
-        Debug.Log("Spawned random fruits at all spawn points with scale = 1!");
+        Debug.Log("Spawned random fruits tại tất cả vị trí spawn!");
     }
+
+
 
     // Fusion callback stubs
     public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
