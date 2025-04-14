@@ -13418,8 +13418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8728e4720b125b459e4cc06db80ade8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _countdownTime: 0
-  countdownText: {fileID: 577846409}
+  _CountdownTime: 0
+  CountdownText: {fileID: 0}
 --- !u!4 &559656503
 Transform:
   m_ObjectHideFlags: 0
@@ -14557,6 +14557,7 @@ MonoBehaviour:
   - RawGuidValue: 95f94f1ccf8dd3244b2276b09549f9fe
   - RawGuidValue: 608349959c0eb9743841ee449d2b3150
   - RawGuidValue: 152d2c09014a06f4eac715d9e6ec66ec
+  fruitSpawnParent: {fileID: 733644868}
   fruitSpawnPoints:
   - {fileID: 733644868}
   spawnPoint: {fileID: 2087784548}

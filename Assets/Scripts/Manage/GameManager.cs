@@ -147,35 +147,25 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
 
     void SpawnRandomFruit()
     {
-        //if (!Runner.IsServer) return;
-
-        if (fruitPrefabs.Length == 0)
+        if (fruitPrefabs.Length == 0 || fruitSpawnPoints.Length == 0)
         {
-            Debug.LogWarning("Fruit prefabs chưa gán!");
+            Debug.LogWarning("Fruit prefabs hoặc spawn points chưa gán!");
             return;
         }
 
-        List<Transform> allSpawnPoints = new List<Transform>();
-
-        foreach (Transform group in fruitSpawnPoints)
+        foreach (Transform spawn in fruitSpawnPoints)
         {
-            foreach (Transform spawn in group)
+            NetworkPrefabRef randomFruit = fruitPrefabs[UnityEngine.Random.Range(0, fruitPrefabs.Length)];
+
+            _runner.Spawn(randomFruit, spawn.position, Quaternion.identity, null, (runner, obj) =>
             {
-                allSpawnPoints.Add(spawn);
-            }
+                obj.transform.localScale = Vector3.one;
+            });
         }
 
-        // Random lấy một điểm
-        var randomSpawnPoint = allSpawnPoints[UnityEngine.Random.Range(0, allSpawnPoints.Count)];
-        var randomFruit = fruitPrefabs[UnityEngine.Random.Range(0, fruitPrefabs.Length)];
-
-        _runner.Spawn(randomFruit, randomSpawnPoint.position, Quaternion.identity, null, (runner, obj) =>
-        {
-            obj.transform.localScale = Vector3.one;
-        });
-
-        Debug.Log("Spawned a random fruit!");
+        Debug.Log("Spawned random fruits at all spawn points with scale = 1!");
     }
+
 
 
 
