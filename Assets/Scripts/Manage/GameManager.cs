@@ -18,9 +18,10 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     [SerializeField] private Transform spawnP3;
     [SerializeField] private Transform spawnP4;
 
-    [Header("Fruit Spawn Setup")]
-    public NetworkPrefabRef[] fruitPrefabs;      // Add prefab references in Inspector
-    public Transform[] fruitSpawnPoints;         // Add positions in Inspector
+    [Header("Fruit Setup")]
+    public NetworkPrefabRef[] fruitPrefabs;
+    public Transform fruitSpawnParent; // 👉 object cha
+    [HideInInspector] public Transform[] fruitSpawnPoints; // 👉 tự gán ở runtime
 
     private bool fruitSpawned = false;
 
@@ -38,6 +39,7 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
             _sceneManager = runnerObj.AddComponent<NetworkSceneManagerDefault>();
         }
         ConnectToFusion();
+        AssignSpawnPoints();
     }
 
     async void ConnectToFusion()
@@ -123,28 +125,58 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     {
         scoreManagerInstance = _runner.Spawn(scoreManagerPrefab, Vector3.zero, Quaternion.identity);
     }
-    void SpawnRandomFruit()
-    {
-        if (!Runner.IsServer) return; // Chỉ host thực hiện spawn
 
-        if (fruitPrefabs.Length == 0 || fruitSpawnPoints.Length == 0)
+    void AssignSpawnPoints()
+    {
+        if (fruitSpawnParent == null)
         {
-            Debug.LogWarning("Fruit prefabs hoặc spawn points chưa gán!");
+            Debug.LogError("Chưa gán Fruit Spawn Parent!");
             return;
         }
 
-        foreach (Transform spawn in fruitSpawnPoints)
+        List<Transform> spawnList = new List<Transform>();
+        foreach (Transform child in fruitSpawnParent)
         {
-            NetworkPrefabRef randomFruit = fruitPrefabs[UnityEngine.Random.Range(0, fruitPrefabs.Length)];
-
-            _runner.Spawn(randomFruit, spawn.position, Quaternion.identity, null, (runner, obj) =>
-            {
-                obj.transform.localScale = Vector3.one;
-            });
+            spawnList.Add(child);
         }
 
-        Debug.Log("Spawned random fruits on host, synced to all clients!");
+        fruitSpawnPoints = spawnList.ToArray();
+        Debug.Log($"Đã tự động gán {fruitSpawnPoints.Length} điểm spawn.");
     }
+
+
+    void SpawnRandomFruit()
+    {
+        //if (!Runner.IsServer) return;
+
+        if (fruitPrefabs.Length == 0)
+        {
+            Debug.LogWarning("Fruit prefabs chưa gán!");
+            return;
+        }
+
+        List<Transform> allSpawnPoints = new List<Transform>();
+
+        foreach (Transform group in fruitSpawnPoints)
+        {
+            foreach (Transform spawn in group)
+            {
+                allSpawnPoints.Add(spawn);
+            }
+        }
+
+        // Random lấy một điểm
+        var randomSpawnPoint = allSpawnPoints[UnityEngine.Random.Range(0, allSpawnPoints.Count)];
+        var randomFruit = fruitPrefabs[UnityEngine.Random.Range(0, fruitPrefabs.Length)];
+
+        _runner.Spawn(randomFruit, randomSpawnPoint.position, Quaternion.identity, null, (runner, obj) =>
+        {
+            obj.transform.localScale = Vector3.one;
+        });
+
+        Debug.Log("Spawned a random fruit!");
+    }
+
 
 
 
