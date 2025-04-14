@@ -1,48 +1,66 @@
-﻿using UnityEngine;
-using Fusion;
+﻿using Fusion;
+using UnityEngine;
 using TMPro;
 using System;
-using System.Collections;
 
 public class GameTime : NetworkBehaviour
 {
-    [Networked, OnChangedRender(nameof(OnTimeChanged))]
-    public float countdownTime { get; set; }
+    private const float InitialCountdownTime = 300f; // 5 minutes
+    private float localTimer = 0f;
 
-    public TextMeshProUGUI countdownText;
+    [Networked]
+    public float CountdownTime { get; set; }
+
+    public TextMeshProUGUI CountdownText;
+
+    private void Awake()
+    {
+        if (CountdownText == null)
+            CountdownText = GameObject.Find("Time")?.GetComponent<TextMeshProUGUI>();
+    }
 
     public override void Spawned()
     {
+        Debug.Log("[GameTime] Spawned");
+
         if (Object.HasStateAuthority)
         {
-            countdownTime = 300f;
-            StartCoroutine(ServerCountdown());
+            CountdownTime = InitialCountdownTime;
+            Debug.Log("[GameTime] Countdown started at: " + CountdownTime);
         }
+
+        // Initial update of the timer text
+        UpdateTimerText(CountdownTime);
     }
 
-    IEnumerator ServerCountdown()
+    public override void FixedUpdateNetwork()
     {
-        while (countdownTime > 0)
+        if (Object.HasStateAuthority && CountdownTime > 0f)
         {
-            yield return new WaitForSeconds(1f);
-            countdownTime--;
+            localTimer += Runner.DeltaTime;
+
+            if (localTimer >= 1f)
+            {
+                CountdownTime = Mathf.Max(CountdownTime - 1f, 0f);
+                localTimer = 0f;
+
+                Debug.Log("[GameTime] CountdownTime now: " + CountdownTime);
+            }
         }
 
-        countdownTime = 0;
-        Rpc_TimeOut();
+        // This will run on all clients to update the UI
+        UpdateTimerText(CountdownTime);
     }
 
-    public void OnTimeChanged()
+    private void UpdateTimerText(float timeValue)
     {
-        // Update countdown for all players
-        TimeSpan time = TimeSpan.FromSeconds(countdownTime);
-        countdownText.text = time.ToString(@"mm\:ss");
-    }
+        if (CountdownText == null) return;
 
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    public void Rpc_TimeOut()
-    {
-        countdownText.text = "Hết giờ!";
-        // Thêm các hành động khi hết giờ vào đây
+        // Format the time as mm:ss
+        TimeSpan time = TimeSpan.FromSeconds(timeValue);
+        string formattedTime = time.ToString(@"mm\:ss");
+
+        // Update the text of the CountdownText UI element
+        CountdownText.text = formattedTime;
     }
 }

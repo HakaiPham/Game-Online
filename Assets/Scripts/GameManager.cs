@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
 {
+    [SerializeField] private NetworkPrefabRef gameTimePrefab;
+    private bool gameTimeSpawned = false;
+
     public NetworkPrefabRef _player1Prefab;
     public NetworkPrefabRef _player2Prefab;
     public NetworkPrefabRef _player3Prefab;
@@ -123,11 +126,25 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
             spawnPoint.position,
             spawnPoint.rotation,
             player,
-             (r, o) =>
-             {
-                Debug.Log("Player spawned: " + o);
-             }
+            (runner, obj) =>
+            {
+                Debug.Log("Player spawned: " + obj);
+
+                if (player == _runner.LocalPlayer)
+                {
+                    Camera.main.GetComponent<CameraFollow>().target = obj.transform;
+                }
+            }
         );
+
+
+        // Only the host should spawn the GameTime object
+        if (!gameTimeSpawned)
+        {
+            _runner.Spawn(gameTimePrefab, Vector3.zero, Quaternion.identity);
+            gameTimeSpawned = true;
+            Debug.Log("[GameManager] Spawned GameTime prefab.");
+        }
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
