@@ -31,7 +31,7 @@ public class Trap : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trap hit: " + collision.gameObject.name); // Debug message
+        //Debug.Log("Trap hit: " + collision.gameObject.name); // Debug message
 
         if (collision.CompareTag("Player")) // Use tag or name
         {
