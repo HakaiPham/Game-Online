@@ -1,43 +1,23 @@
 ﻿using UnityEngine;
 using Fusion;
+public enum FruitType { Banana, Apple, Melon, Cherries, Kiwi }
 
 public class Fruit : NetworkBehaviour
 {
-    ScoreManager scoreManager;
-    public bool isBanana;
-    public bool isApple;
-    public bool isMelon;
-    public bool isCherries;
-    public bool isKiwi;
+    public FruitType fruitType;
 
-    private void Start()
-    {
-        scoreManager = FindObjectOfType<ScoreManager>();
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (isBanana)
+            if (ScoreManager.Instance == null)
             {
-                scoreManager.ScoreBanana();
+                Debug.LogError("ScoreManager is missing in the scene!");
+                return;
             }
-            if (isApple)
-            {
-                scoreManager.ScoreApple();
-            }
-            if (isMelon)
-            {
-                scoreManager.ScoreMelon();
-            }
-            if (isCherries)
-            {
-                scoreManager.ScoreCherries();
-            }
-            if (isKiwi)
-            {
-                scoreManager.ScoreKiwi();
-            }
+
+            ScoreManager.Instance.AddScore(fruitType);
+            Runner.Despawn(Object); // nếu muốn destroy luôn
         }
     }
 }

@@ -148,11 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc925fcdc9103348a0ec80295110397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBanana: 0
-  isApple: 0
-  isMelon: 0
-  isCherries: 0
-  isKiwi: 0
+  fruitType: 1
 --- !u!114 &8751236542089226946
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc925fcdc9103348a0ec80295110397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitType: 4
 --- !u!114 &5367345927354036521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SortKey: 3365276733
   ObjectInterest: 1
-  Flags: 1
+  Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 3367375893846037960}
