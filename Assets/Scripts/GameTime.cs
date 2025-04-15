@@ -16,7 +16,7 @@ public class GameTime : NetworkBehaviour
     private void Awake()
     {
         if (CountdownText == null)
-            CountdownText = GameObject.Find("Time")?.GetComponent<TextMeshProUGUI>();
+            CountdownText = GameObject.Find("TimeText")?.GetComponent<TextMeshProUGUI>();
     }
 
     public override void Spawned()

@@ -20,14 +20,19 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
 
     [Header("Fruit Setup")]
     public NetworkPrefabRef[] fruitPrefabs;
-    public Transform fruitSpawnParent; // 👉 object cha
-    [HideInInspector] public Transform[] fruitSpawnPoints; // 👉 tự gán ở runtime
+    public Transform fruitSpawnParent;
+    [HideInInspector] public Transform[] fruitSpawnPoints;
 
     private bool fruitSpawned = false;
 
     public Transform spawnPoint;
     public NetworkRunner _runner;
     public NetworkSceneManagerDefault _sceneManager;
+
+    [Header("Time in Level")]
+    public NetworkPrefabRef gameTimePrefab;
+    public bool gameTimeSpawned = false;
+
 
     void Awake()
     {
@@ -106,10 +111,29 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
                 break;
         }
 
-        _runner.Spawn(prefab, spawnPoint.position, spawnPoint.rotation, player, (runner, obj) =>
+        _runner.Spawn
+           (
+            prefab, 
+            spawnPoint.position, 
+            spawnPoint.rotation, 
+            player, 
+            (runner, obj) =>
         {
             Debug.Log("Player spawned: " + obj);
-        });
+
+            if (player == _runner.LocalPlayer)
+            {
+                Camera.main.GetComponent<CameraFollow2D>().target = obj.transform;
+            }
+        }
+           );
+
+        if (!gameTimeSpawned)
+        {
+            _runner.Spawn(gameTimePrefab, Vector3.zero, Quaternion.identity);
+            gameTimeSpawned = true;
+            Debug.Log("[GameManager] Spawned GameTime Prefab");
+        }
 
         // 🔸 Spawn fruit only once when host joins
         if (!fruitSpawned && player == _runner.LocalPlayer)
