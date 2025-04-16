@@ -65,7 +65,7 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         AutoAssignReferences(); // Gọi lại hàm gán tham chiếu sau khi cảnh mới được tải
-                                
+
         if (_runner != null) // Sau khi scene đã load xong, gọi lại spawn player
         {
             foreach (var player in _runner.ActivePlayers)
