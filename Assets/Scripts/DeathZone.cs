@@ -7,14 +7,12 @@ public class DeathZone : NetworkBehaviour
     {
         if (!Object.HasStateAuthority) return;
 
-        // Check if the object is a player
         if (other.CompareTag("Player"))
         {
-            NetworkObject netObj = other.GetComponent<NetworkObject>();
-
-            if (netObj != null)
+            PlayerDeath death = other.GetComponent<PlayerDeath>();
+            if (death != null)
             {
-                Runner.Despawn(netObj);
+                death.Die();
             }
         }
     }

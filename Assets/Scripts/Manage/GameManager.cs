@@ -141,13 +141,20 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
             fruitSpawned = true;
             SpawnRandomFruit();
         }
+
     }
     public NetworkPrefabRef scoreManagerPrefab;
     private NetworkObject scoreManagerInstance;
 
+    public NetworkPrefabRef levelResetManagerPrefab;
+    private NetworkObject levelResetManagerInstance;
+
     public void SpawnScoreManager()
     {
         scoreManagerInstance = _runner.Spawn(scoreManagerPrefab, Vector3.zero, Quaternion.identity);
+
+        levelResetManagerInstance = _runner.Spawn(levelResetManagerPrefab, Vector3.zero, Quaternion.identity);
+        Debug.Log("[GameManager] Spawned LevelResetManager Prefab");
     }
 
     void AssignSpawnPoints()

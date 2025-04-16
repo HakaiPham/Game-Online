@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using Fusion;
 
-public class Trap : MonoBehaviour
+public class Trap : NetworkBehaviour
 {
     public float LimitUp;
     public float LimitDown;
@@ -10,40 +10,25 @@ public class Trap : MonoBehaviour
 
     void Update()
     {
+        // This trap doesn’t need StateAuthority if it's just moving locally for all clients
+        Vector3 movement = (movingUp ? Vector3.up : Vector3.down) * Speed * Time.deltaTime;
+        transform.position += movement;
 
-        if (movingUp)
-        {
-            transform.position += Vector3.up * Speed * Time.deltaTime;
-            if (transform.position.y >= LimitUp)
-            {
-                movingUp = false;
-            }
-        }
-        else
-        {
-            transform.position += Vector3.down * Speed * Time.deltaTime;
-            if (transform.position.y <= LimitDown)
-            {
-                movingUp = true;
-            }
-        }
+        if (movingUp && transform.position.y >= LimitUp) movingUp = false;
+        else if (!movingUp && transform.position.y <= LimitDown) movingUp = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("Trap hit: " + collision.gameObject.name); // Debug message
+        if (!Object.HasStateAuthority) return;
 
-        if (collision.CompareTag("Player")) // Use tag or name
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player detected! Calling Die()");
+            Debug.Log("Trap triggered: " + collision.name);
             PlayerDeath player = collision.GetComponent<PlayerDeath>();
             if (player != null)
             {
                 player.Die();
-            }
-            else
-            {
-                Debug.LogError("PlayerDeath script NOT found on Player!");
             }
         }
     }
