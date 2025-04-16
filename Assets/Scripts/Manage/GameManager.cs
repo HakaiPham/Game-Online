@@ -3,6 +3,7 @@ using Fusion;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
 {
@@ -36,6 +37,8 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject); // Giữ lại object khi chuyển scene
+
         if (_runner == null)
         {
             GameObject runnerObj = new GameObject("NetworkRunner");
@@ -45,7 +48,66 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
         }
         ConnectToFusion();
         AssignSpawnPoints();
+        AutoAssignReferences();
+
     }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AutoAssignReferences(); // Gọi lại hàm gán tham chiếu sau khi cảnh mới được tải
+                                
+        if (_runner != null) // Sau khi scene đã load xong, gọi lại spawn player
+        {
+            foreach (var player in _runner.ActivePlayers)
+            {
+                OnPlayerJoined(_runner, player);
+            }
+        }
+    }
+
+
+    void AutoAssignReferences()
+    {
+        Debug.Log("Đang gán lại các tham chiếu...");
+
+        // Kiểm tra và gán các điểm spawn của người chơi
+        spawnP1 = GameObject.Find("Spawn1")?.transform;
+        if (spawnP1 == null) Debug.LogWarning("Không tìm thấy 'Spawn1' để gán cho spawnP1.");
+
+        spawnP2 = GameObject.Find("Spawn2")?.transform;
+        if (spawnP2 == null) Debug.LogWarning("Không tìm thấy 'Spawn2' để gán cho spawnP2.");
+
+        spawnP3 = GameObject.Find("Spawn3")?.transform;
+        if (spawnP3 == null) Debug.LogWarning("Không tìm thấy 'Spawn3' để gán cho spawnP3.");
+
+        spawnP4 = GameObject.Find("Spawn4")?.transform;
+        if (spawnP4 == null) Debug.LogWarning("Không tìm thấy 'Spawn4' để gán cho spawnP4.");
+
+        // Kiểm tra và gán Fruit Spawn Parent
+        fruitSpawnParent = GameObject.Find("FruitSpawnGroup")?.transform;
+        if (fruitSpawnParent == null) Debug.LogWarning("Không tìm thấy 'FruitSpawnGroup' để gán cho fruitSpawnParent.");
+
+        // Kiểm tra và gán Spawn Point
+        spawnPoint = GameObject.Find("SpawnPoint")?.transform;
+        if (spawnPoint == null) Debug.LogWarning("Không tìm thấy 'SpawnPoint' để gán cho spawnPoint.");
+
+        // Kiểm tra _runner và _sceneManager (không cần gán lại, chỉ kiểm tra)
+        if (_runner == null) Debug.LogError("_runner chưa được khởi tạo trong Awake()!");
+        if (_sceneManager == null) Debug.LogError("_sceneManager chưa được khởi tạo trong Awake()!");
+
+        Debug.Log("Đã tự động gán các tham chiếu.");
+    }
+
+
 
     async void ConnectToFusion()
     {
@@ -113,19 +175,19 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
 
         _runner.Spawn
            (
-            prefab, 
-            spawnPoint.position, 
-            spawnPoint.rotation, 
-            player, 
+            prefab,
+            spawnPoint.position,
+            spawnPoint.rotation,
+            player,
             (runner, obj) =>
-        {
-            Debug.Log("Player spawned: " + obj);
-
-            if (player == _runner.LocalPlayer)
             {
-                Camera.main.GetComponent<CameraFollow2D>().target = obj.transform;
+                Debug.Log("Player spawned: " + obj);
+
+                if (player == _runner.LocalPlayer)
+                {
+                    Camera.main.GetComponent<CameraFollow2D>().target = obj.transform;
+                }
             }
-        }
            );
 
         if (!gameTimeSpawned)
