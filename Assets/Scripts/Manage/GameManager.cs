@@ -34,7 +34,8 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     public NetworkPrefabRef gameTimePrefab;
     public bool gameTimeSpawned = false;
 
-
+    public NetworkPrefabRef levelResetManagerPrefab;
+    private NetworkObject levelResetManagerInstance;
     void Awake()
     {
         DontDestroyOnLoad(gameObject); // Giữ lại object khi chuyển scene
@@ -210,6 +211,8 @@ public class GameManager : NetworkBehaviour, INetworkRunnerCallbacks
     public void SpawnScoreManager()
     {
         scoreManagerInstance = _runner.Spawn(scoreManagerPrefab, Vector3.zero, Quaternion.identity);
+        levelResetManagerInstance = _runner.Spawn(levelResetManagerPrefab, Vector3.zero, Quaternion.identity);
+        Debug.Log("[GameManager] Spawned LevelResetManager Prefab");
     }
 
     void AssignSpawnPoints()
