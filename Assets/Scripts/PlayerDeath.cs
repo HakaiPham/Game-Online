@@ -3,6 +3,7 @@ using Fusion;
 
 public class PlayerDeath : NetworkBehaviour
 {
+    // This script handles the player death logic and level reset request.
     public void Die()
     {
         if (!HasStateAuthority) return;

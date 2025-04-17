@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : NetworkBehaviour
 {
+    //Chống trôi biến
     public static ScoreManager Instance { get; private set; }
 
     [Networked] public int scoreBanana { get; set; }

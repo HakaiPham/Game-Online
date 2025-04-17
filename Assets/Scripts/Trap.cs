@@ -3,6 +3,7 @@ using Fusion;
 
 public class Trap : NetworkBehaviour
 {
+    // This script handles the trap logic, including movement and player collision detection.
     public float LimitUp;
     public float LimitDown;
     public float Speed;

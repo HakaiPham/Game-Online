@@ -5,6 +5,7 @@ using System.Collections;
 
 public class LevelResetManager : NetworkBehaviour
 {
+    // This script handles the level reset logic when a player dies.
     public static LevelResetManager Instance;
 
     private void Awake()
