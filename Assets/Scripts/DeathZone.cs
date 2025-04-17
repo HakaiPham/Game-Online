@@ -3,18 +3,17 @@ using Fusion;
 
 public class DeathZone : NetworkBehaviour
 {
+    // This script handles the death zone collision detection and player death logic.
     private void OnTriggerEnter(Collider other)
     {
         if (!Object.HasStateAuthority) return;
 
-        // Check if the object is a player
         if (other.CompareTag("Player"))
         {
-            NetworkObject netObj = other.GetComponent<NetworkObject>();
-
-            if (netObj != null)
+            PlayerDeath death = other.GetComponent<PlayerDeath>();
+            if (death != null)
             {
-                Runner.Despawn(netObj);
+                death.Die();
             }
         }
     }

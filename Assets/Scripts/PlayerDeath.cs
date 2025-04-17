@@ -1,20 +1,24 @@
-using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement; // Needed for scene reloading
+﻿using UnityEngine;
+using Fusion;
 
-public class PlayerDeath : MonoBehaviour
+public class PlayerDeath : NetworkBehaviour
 {
+    // This script handles the player death logic and level reset request.
     public void Die()
     {
-        Debug.Log("Destroying player...");
-        Destroy(gameObject);
-        StartCoroutine(RespawnPlayer());
-    }
+        if (!HasStateAuthority) return;
 
-    private IEnumerator RespawnPlayer()
-    {
-        yield return new WaitForSeconds(1f); // Wait 1 second before reloading
-        Debug.Log("Reloading scene...");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reloads the current scene
+        Debug.Log("Player died — requesting level reset...");
+
+        if (LevelResetManager.Instance != null)
+        {
+            LevelResetManager.Instance.RequestLevelReset();
+        }
+        else
+        {
+            Debug.LogError("LevelResetManager not found!");
+        }
+
+        Runner.Despawn(Object);
     }
 }

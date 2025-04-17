@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : NetworkBehaviour
 {
+    //Chống trôi biến
     public static ScoreManager Instance { get; private set; }
 
     [Networked] public int scoreBanana { get; set; }
@@ -36,7 +37,22 @@ public class ScoreManager : NetworkBehaviour
     {
         if (Object.HasStateAuthority)
         {
-            ResetScores();
+            LoadScoresFromPrefs();
+        }
+
+        UpdateScoreUI();
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RpcAddScore(FruitType type)
+    {
+        switch (type)
+        {
+            case FruitType.Banana: scoreBanana++; SaveScoreToPrefs(type, scoreBanana); break;
+            case FruitType.Apple: scoreApple++; SaveScoreToPrefs(type, scoreApple); break;
+            case FruitType.Melon: scoreMelon++; SaveScoreToPrefs(type, scoreMelon); break;
+            case FruitType.Cherries: scoreCherries++; SaveScoreToPrefs(type, scoreCherries); break;
+            case FruitType.Kiwi: scoreKiwi++; SaveScoreToPrefs(type, scoreKiwi); break;
         }
 
         UpdateScoreUI();
@@ -50,30 +66,41 @@ public class ScoreManager : NetworkBehaviour
         scoreCherries = 0;
         scoreKiwi = 0;
 
+        DeleteAllPrefs();
         UpdateScoreUI();
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    public void RpcAddScore(FruitType type)
-    {
-        switch (type)
-        {
-            case FruitType.Banana: scoreBanana++; break;
-            case FruitType.Apple: scoreApple++; break;
-            case FruitType.Melon: scoreMelon++; break;
-            case FruitType.Cherries: scoreCherries++; break;
-            case FruitType.Kiwi: scoreKiwi++; break;
-        }
-
-        UpdateScoreUI();
-    }
-
-    public void UpdateScoreUI()
+    private void UpdateScoreUI()
     {
         bananaText.text = scoreBanana.ToString();
         appleText.text = scoreApple.ToString();
         melonText.text = scoreMelon.ToString();
         cherriesText.text = scoreCherries.ToString();
         kiwiText.text = scoreKiwi.ToString();
+    }
+
+    private void SaveScoreToPrefs(FruitType type, int value)
+    {
+        PlayerPrefs.SetInt($"FruitScore_{type}", value);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadScoresFromPrefs()
+    {
+        scoreBanana = PlayerPrefs.GetInt("FruitScore_Banana", 0);
+        scoreApple = PlayerPrefs.GetInt("FruitScore_Apple", 0);
+        scoreMelon = PlayerPrefs.GetInt("FruitScore_Melon", 0);
+        scoreCherries = PlayerPrefs.GetInt("FruitScore_Cherries", 0);
+        scoreKiwi = PlayerPrefs.GetInt("FruitScore_Kiwi", 0);
+    }
+
+    private void DeleteAllPrefs()
+    {
+        PlayerPrefs.DeleteKey("FruitScore_Banana");
+        PlayerPrefs.DeleteKey("FruitScore_Apple");
+        PlayerPrefs.DeleteKey("FruitScore_Melon");
+        PlayerPrefs.DeleteKey("FruitScore_Cherries");
+        PlayerPrefs.DeleteKey("FruitScore_Kiwi");
+        PlayerPrefs.Save();
     }
 }
