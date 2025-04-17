@@ -5,7 +5,6 @@ using System.Collections;
 
 public class LevelResetManager : NetworkBehaviour
 {
-    //Chống trôi 
     public static LevelResetManager Instance;
 
     private void Awake()

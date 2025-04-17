@@ -3,7 +3,6 @@ using Fusion;
 
 public class PlayerDeath : NetworkBehaviour
 {
-    //Chống trôi
     public void Die()
     {
         if (!HasStateAuthority) return;
