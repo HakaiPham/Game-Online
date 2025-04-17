@@ -15,6 +15,9 @@ public class PlayerMovement : NetworkBehaviour
 
     public Animator animator;
 
+    public AudioSource audioSource;
+    public AudioClip jumpSound;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -30,6 +33,13 @@ public class PlayerMovement : NetworkBehaviour
         {
             Debug.LogError("Rigidbody2D not found on " + gameObject.name);
         }
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource not found on " + gameObject.name);
+        }
+
     }
 
     public override void FixedUpdateNetwork()
@@ -68,6 +78,8 @@ public class PlayerMovement : NetworkBehaviour
             Debug.Log(">>>>>>>");
             animator.SetTrigger("jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            RPC_PlayJumpSound();
+
         }
         else
         {
@@ -77,6 +89,9 @@ public class PlayerMovement : NetworkBehaviour
                 animator.SetTrigger("Idle");
             }
         }
+        
+           
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -93,4 +108,14 @@ public class PlayerMovement : NetworkBehaviour
 
         // TODO: Add any UI update, sound effects, or animations here
     }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    void RPC_PlayJumpSound()
+    {
+        if (jumpSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(jumpSound);
+        }
+    }
+
 }
