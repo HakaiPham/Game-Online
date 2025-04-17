@@ -3,6 +3,7 @@ using Fusion;
 
 public class Trap : NetworkBehaviour
 {
+    // This script handles the movement of a trap in the game.
     public float LimitUp;
     public float LimitDown;
     public float Speed;
