@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2378461372739699509}
   - component: {fileID: 757048403803834149}
   m_Layer: 0
-  m_Name: ResetLevel
+  m_Name: LevelReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

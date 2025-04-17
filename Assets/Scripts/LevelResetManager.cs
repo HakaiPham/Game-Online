@@ -1,11 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Fusion;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class LevelResetManager : NetworkBehaviour
 {
-    //Chống trôi 
     public static LevelResetManager Instance;
 
     private void Awake()
@@ -17,7 +16,7 @@ public class LevelResetManager : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RpcResetLevel()
     {
-        Debug.Log("[LevelResetManager] RPC received — resetting level...");
+        Debug.Log("[LevelResetManager] RPC received � resetting level...");
         StartCoroutine(ResetSceneCoroutine());
     }
 
