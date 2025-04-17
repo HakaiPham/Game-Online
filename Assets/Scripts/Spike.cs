@@ -1,7 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
+    //Chống trôi
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Spike hit: " + collision.gameObject.name);
