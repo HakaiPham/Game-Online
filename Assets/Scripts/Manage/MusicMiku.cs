@@ -1,51 +1,137 @@
 ﻿using UnityEngine;
 using Fusion;
+using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
 public class MusicMiku : NetworkBehaviour
 {
-    public AudioClip musicClip;
-    private AudioSource audioSource;
+    [Header("Music Settings")]
+    [SerializeField] private AudioClip _musicClip;
+    [SerializeField][Range(0.0f, 1.0f)] private float _volume = 1.0f;
 
-    [Networked]
-    public float MusicStartTime { get; set; }
+    [Networked] public float NetworkedMusicTime { get; set; }
+    [Networked] public NetworkBool NetworkedIsPlaying { get; set; }
+    [Networked] public PlayerRef CurrentHost { get; set; }
 
-    private bool localMusicStarted = false;
-    private bool isSpawnedDone = false;
+    private AudioSource _audioSource;
+    private bool _isHostInitialized = false;
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.clip = _musicClip;
+        _audioSource.volume = _volume;
+        _audioSource.loop = true;
+        _audioSource.playOnAwake = true; // Có thể bật nhưng vẫn sẽ Pause() ở Spawned()
+    }
 
     public override void Spawned()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = musicClip;
-        audioSource.loop = true;
-        audioSource.playOnAwake = false;
+        _audioSource.Pause(); // Dừng phát khi mới vào game
 
-        isSpawnedDone = true;
-
-        // Host: lần đầu vào game thì set thời gian bắt đầu nhạc
-        if (Object.HasStateAuthority && MusicStartTime == 0)
+        if (Object.HasStateAuthority)
         {
-            MusicStartTime = (float)Runner.SimulationTime;
-            Debug.Log($"[Host] Set MusicStartTime: {MusicStartTime}");
-
-            audioSource.time = 0f;
-            audioSource.Play();
-            localMusicStarted = true;
+            InitializeAsHost();
+        }
+        else
+        {
+            StartCoroutine(WaitForHostMusicData());
         }
     }
 
-    void Update()
+    private void InitializeAsHost()
     {
-        if (!isSpawnedDone || localMusicStarted || MusicStartTime <= 0) return;
+        if (_isHostInitialized) return;
 
-        // Tính thời gian đã trôi qua từ lúc host bắt đầu phát nhạc
-        float elapsed = (float)(Runner.SimulationTime - MusicStartTime);
-        float playbackTime = elapsed % musicClip.length;
+        CurrentHost = Object.InputAuthority;
+        NetworkedIsPlaying = true;
+        _isHostInitialized = true;
 
-        Debug.Log($"[Client] Elapsed: {elapsed}, PlaybackTime: {playbackTime}");
+        NetworkedMusicTime = _audioSource.time;
+        _audioSource.UnPause(); // Tiếp tục phát nếu đã play on awake
 
-        audioSource.time = playbackTime;
-        audioSource.Play();
-        localMusicStarted = true;
+        StartCoroutine(SyncMusicTimeRoutine());
+    }
+
+    private IEnumerator WaitForHostMusicData()
+    {
+        yield return new WaitUntil(() => NetworkedIsPlaying);
+
+        _audioSource.time = NetworkedMusicTime;
+        _audioSource.Play();
+    }
+
+    private IEnumerator SyncMusicTimeRoutine()
+    {
+        while (Object.HasStateAuthority && NetworkedIsPlaying)
+        {
+            NetworkedMusicTime = _audioSource.time;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    public override void FixedUpdateNetwork()
+    {
+        if (!Object.HasStateAuthority && NetworkedIsPlaying)
+        {
+            if (Mathf.Abs(_audioSource.time - NetworkedMusicTime) > 0.1f)
+            {
+                _audioSource.time = NetworkedMusicTime;
+
+                if (!_audioSource.isPlaying)
+                {
+                    _audioSource.Play();
+                }
+            }
+        }
+    }
+
+    public override void Render()
+    {
+        if (!Object.HasStateAuthority && NetworkedIsPlaying)
+        {
+            _audioSource.time = Mathf.Lerp(_audioSource.time, NetworkedMusicTime, 0.1f);
+        }
+    }
+
+    public override void Despawned(NetworkRunner runner, bool hasState)
+    {
+        if (Object.HasStateAuthority && CurrentHost == Object.InputAuthority)
+        {
+            TryTransferHostAuthority(runner);
+        }
+    }
+
+    private void TryTransferHostAuthority(NetworkRunner runner)
+    {
+        foreach (var player in runner.ActivePlayers)
+        {
+            if (player != Object.InputAuthority)
+            {
+                var objects = FindObjectsOfType<MusicMiku>();
+                foreach (var obj in objects)
+                {
+                    if (obj.Object != null && obj.Object.InputAuthority == player)
+                    {
+                        obj.CurrentHost = player;
+                        obj.NetworkedIsPlaying = true;
+                        obj._audioSource.time = NetworkedMusicTime;
+                        obj._audioSource.Play();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+    public void Rpc_PlayMusic(NetworkBool play)
+    {
+        if (CurrentHost == Object.InputAuthority)
+        {
+            NetworkedIsPlaying = play;
+            if (play) _audioSource.Play();
+            else _audioSource.Stop();
+        }
     }
 }
