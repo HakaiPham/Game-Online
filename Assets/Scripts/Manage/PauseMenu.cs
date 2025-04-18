@@ -51,15 +51,15 @@ public class PauseMenu : NetworkBehaviour
 
     public void RetryGame()
     {
-        //PlayerPrefs.DeleteAll();
-        //// Dừng game mạng trước khi reload để tránh spawn player mới
-        //if (_runner != null)
-        //{
-        //    _runner.Shutdown(); // Quan trọng!
-        //}
+        PlayerPrefs.DeleteAll();
+        // Dừng game mạng trước khi reload để tránh spawn player mới
+        if (_runner != null)
+        {
+            _runner.Shutdown(); // Quan trọng!
+        }
 
-        //// Load lại scene sau khi shutdown
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Load lại scene sau khi shutdown
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 
