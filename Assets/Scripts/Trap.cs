@@ -21,7 +21,7 @@ public class Trap : NetworkBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!Object.HasStateAuthority) return;
+        //if (!Object.HasStateAuthority) return;
 
         if (collision.CompareTag("Player"))
         {
